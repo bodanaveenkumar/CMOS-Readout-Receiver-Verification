@@ -108,39 +108,54 @@ Additional testbenches are included for interface-based, simple, generator and t
 
 
 
-\## 5. Simulation and Testing
+## 5. Simulation and Testing
 
+Simulation was performed using **Vivado 2020.2 XSim**.
 
+### Tested Frame Configurations
 
-Simulation was performed using Vivado 2020.2 and XSim.
+| Frame | Width | Height | Pixels |
+|---|---:|---:|---:|
+| 1 | 64 | 2 | 128 |
+| 2 | 54 | 3 | 162 |
+| 3 | 50 | 16 | 800 |
+| **Total** | | | **1,090** |
 
+### Scoreboard Verification Results
 
+| Metric | Result |
+|---|---:|
+| Frames checked | 3 |
+| Pixels checked | 1,090 |
+| Pixel data errors | 0 |
+| SOF errors | 0 |
+| EOL errors | 0 |
+| Frame errors | 0 |
 
-\### Previously Tested Frame Configurations
+### Monitor Results
 
+| Metric | Result |
+|---|---:|
+| Valid pixels observed | 1,090 |
+| SOF events | 3 |
+| EOL events | 21 |
+| Frame start events | 3 |
+| Frame done events | 3 |
+| Error flag samples | 0 |
 
+### Final Simulation Result
 
-| Frame Configuration | Description |
+**SCOREBOARD RESULT: PASS**
 
-|---|---|
+All three tested frames were successfully checked. No pixel data or protocol errors were detected during this simulation.
 
-| 64 × 2 | Frame test configuration |
+- Simulation completion time: 11,470 ns
+- Testbench: `tb_driver_test`
+- Simulator: Vivado 2020.2 XSim
 
-| 54 × 3 | Frame test configuration |
+Detailed results are available in `simulation/reports/verification_summary.md`.
 
-| 50 × 16 | Frame test configuration |
-
-
-
-\- Total monitored pixels reported: \*\*1,090\*\*
-
-\- Simulation duration: \*\*1,000 ns\*\*
-
-\- Simulation waveforms were inspected using Vivado.
-
-
-
-\*\*Verification note:\*\* Simulation completion was observed. Final scoreboard PASS/FAIL status requires confirmation from the simulation logs.
+Simulation waveforms are available in `simulation/waveforms/`.
 
 
 
